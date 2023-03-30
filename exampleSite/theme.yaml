@@ -1,0 +1,9 @@
+name: 'Deep blue theme'
+description: 'Deep blue Hugo Theme for blogging'
+homepage: 'https://github.com/namwa/deep-blue-theme'
+demosite: 'https://deep-blue-hugo-theme.firebaseapp.com/'
+tags: ['blog', 'tailwind css', 'portfolio']
+min_version: 0.96.0
+author:
+  name: 'Namwa Sawasdiworn'
+  homepage: 'https://www.namwa.dev'

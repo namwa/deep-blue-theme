@@ -1,0 +1,13 @@
+topTitle: About me
+title:
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat urna ts,
+  a faucibus metus cursus. Nulla eleifend, erat ut condimentum ultricies.
+contentHeader: I architect and build MVP for startups.
+content:
+  dolor sit amet, consectetur adipiscing elit. Suspendisse placerat urna ts,
+  a faucibus metus cursus. Nulla eleifend, erat ut condimentum ultricies.dolor sit amet,
+  consectetur adipiscing elit. Suspendisse placerat urna ts,
+  a faucibus metus cursus
+image: images/about/about_img.jpg
+buttonName: Hire me
+buttonTarget: contact
