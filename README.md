@@ -73,15 +73,15 @@ You can change content of each section by using YAML files in `data` directory.
 
 ## Development
 
-For editing the theme.
+For editing the theme. Note that this theme is using Tailwind CSS.
 
 1. Go to `themes/deep-blue-theme` directory and run `npm run watch`
 
-2. Run `hugo server` and see the site locally at `http://localhost:1313/`.
+2. Run `hugo server` on the root directory and see the site locally at `http://localhost:1313/`.
 
 ## Production
 
 1. Go to `themes/deep-blue-theme` directory and run `npm run build` This will minify
 the generated CSS.
 
-2. Run `hugo` to build the whole site.
+2. Run `hugo` on the root directory to build the whole site.
