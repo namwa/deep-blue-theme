@@ -2,7 +2,7 @@ baseURL = 'https://example.com'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'deep-blue-theme'
-themesDir = ../..
+themesDir = '../..'
 disableHugoGeneratorInject = true
 
 # Main Menu
