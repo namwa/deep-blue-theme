@@ -2,6 +2,8 @@
 
 This theme is created for Hugo SSG using Tailwind CSS. It's good for blogging.
 
+[Demo site](https://leafy-monstera-2ea0d1.netlify.app/)
+
 ## Installation
 
 You need to install Hugo first before using this theme.
