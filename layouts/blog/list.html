@@ -1,0 +1,48 @@
+{{- define "main"}}
+<header class="flex flex-col items-center justify-center space-y-2 px-6">
+	<div class="mt-10 md:mt-20 text-center">
+    <h1 class="text-primary-900 font-semibold text-4xl">{{.Title}}</h3>
+  </div>
+  <nav class="py-6" aria-label="Breadcrumb">
+    <ol role="list" class="flex items-center space-x-4">
+      <li>
+        <div>
+          <a href="{{.Site.BaseURL}}" class="text-primary-900 hover:text-primary-700">
+            <!-- Heroicon name: solid/home -->
+            <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+            </svg>
+            <span class="sr-only">Home</span>
+          </a>
+        </div>
+      </li>
+
+      <li>
+        <div class="flex items-center">
+          <!-- Heroicon name: solid/chevron-right -->
+          <svg class="flex-shrink-0 h-5 w-5 text-primary-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+          <span class="ml-4 text-base font-medium text-primary-900">{{.Title}}</span>
+        </div>
+      </li>
+    </ol>
+  </nav>
+</header>
+
+<section class="max-w-7xl mx-auto px-6 py-6 md:py-20">
+  <div class="max-w-xl mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+    {{- range .Paginator.Pages}}
+    <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+      <a href="{{.Permalink}}">
+        <img src="{{.Params.image | absURL}}" alt="post-image" class="h-48 w-full object-cover">
+        <div class="p-4 bg-gray-100">
+          <h5 class="py-2 text-primary-900 font-semibold">{{.Title}}</h5>
+          <span class="text-sm text-gray-600">{{.Params.date.Format .Site.Params.dateFormat}}</span>
+        </div>
+      </a>
+    </div>
+    {{- end}}
+  </div>
+</section>
+{{- end}}

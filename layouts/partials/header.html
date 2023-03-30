@@ -1,0 +1,82 @@
+<header>
+  <div class="py-4 md:py-10 bg-primary-900">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4">
+      <div class="flex items-center flex-1">
+        <div class="flex items-center justify-between w-full md:w-auto">
+          <a href="{{.Site.BaseURL}}" class="font-semibold text-lg md:text-xl text-white hover:text-primary-100">Jane Doe</a>
+          <div class="-mr-2 flex items-center md:hidden">
+            <button type="button" id="menu-button" class="bg-primary-900 rounded-md p-2 inline-flex items-center justify-center text-primary-100 hover:bg-primary-700 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-primary-100">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        {{$menu := .Site.Menus.main}}
+        {{- range $index, $element := $menu}}
+          <a href="{{ $.Site.BaseURL }}{{ .URL }}">
+           <span class="text-primary-100 hover:text-gray-200 {{ if $.IsHome }}test{{ end }}">{{.Name}}</span>
+          </a>
+        {{- end}}
+      </div>
+      <a href="{{ "contact" | absURL }}" class="hidden md:inline-flex items-center mx-6 px-2 py-1 border border-transparent
+        font-mediumr rounded-lg shadow-sm text-white bg-primary-500 hover:bg-secondary-500
+        focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-500">
+        Hire me
+      </a>
+    </nav>
+    {{/* Mobile nav */}}
+    <div id="menu" class="hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+      <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+        <div class="pt-5 pb-6 px-5">
+          <div class="flex items-center justify-between">
+            <div class="font-bold text-primary-900">
+              <a href="{{.Site.BaseURL}}">Jane Doe</a>
+            </div>
+            <div class="-mr-2">
+              <button type="button" id="close-button" class="bg-white rounded-md p-2 inline-flex
+              items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100
+              focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+                <span class="sr-only">Close menu</span>
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="mt-6">
+            <nav class="grid gap-y-8">
+              {{$menu := .Site.Menus.main}}
+              {{- range $index, $element := $menu}}
+                <a href="{{ $.Site.BaseURL }}{{ .URL }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                <span class="text-base font-medium text-primary-900">{{.Name}}</span>
+                </a>
+              {{- end}}
+            </nav>
+          </div>
+        </div>
+        <div class="py-6 px-5 space-y-6">
+          <div>
+            <a href="{{ "contact" | absURL }}" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium btn btn-secondary">Hire me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{{- define "page-script"}}
+<script>
+const hamburger = document.querySelector('#menu-button');
+const menu = document.querySelector('#menu');
+const closeBtn = document.querySelector('#close-button');
+
+hamburger.addEventListener('click', () => {
+  menu.classList.toggle('hidden');
+});
+closeBtn.addEventListener('click', () => {
+  menu.classList.toggle('hidden');
+});
+</script>
+{{- end}}

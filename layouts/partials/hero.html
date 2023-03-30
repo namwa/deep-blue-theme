@@ -1,0 +1,19 @@
+{{with .Site.Data.hero}}
+<section class="bg-primary-900">
+  <div class="max-w-7xl mx-auto pb-16 sm:pb-24 px-4">
+    <div class="text-center max-w-2xl mx-auto py-10 md:py-12">
+      <h1 class="md:mt-6 text-4xl font-extrabold text-white sm:text-5xl headingFont">
+        <span>Hi, </span><span class="text-accent-300">I'm </span>
+        <span class="underline text-accent-300">{{.name}}</span>
+        <span>{{.content | markdownify}}</span>
+      </h1>
+      <h2 class="text-primary-100 text-2xl font-semibold antialiased my-6 max-w-prose mx-auto">
+        {{.tagline | markdownify}}
+      </h2>
+      <a href="{{ "contact" | absURL }}" class="mt-4 px-4 py-2 btn-secondary rounded-md">
+        {{.buttonName}}
+      </a>
+    </div>
+  </div>
+</section>
+{{- end}}

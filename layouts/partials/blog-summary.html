@@ -1,0 +1,28 @@
+{{- with .Site.Data.blogSummary}}
+<section class="relative bg-primary-900 py-24" id="writings">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-2xl text-white font-semibold headingFont">{{.topTitle}}</h2>
+    </div>
+    <div class="flex justify-center my-4">
+      <a class="px-4 py-2 text-primary-100 bg-primary-900 rounded-lg border border-primary-100 hover:bg-primary-700" href="{{.buttonTarget | absURL}}">View all post</a>
+    </div>
+    <div class="mt-12 max-w-xl mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+      {{- range first 3 $.Site.RegularPages}}
+      <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+        <a href="{{.Permalink}}">
+          <img src="{{.Params.image | absURL}}" alt="post-image" class="h-48 w-full object-cover">
+          <div class="p-6 bg-gray-100">
+            <span class="block mt-2">
+              <p class="text-xl font-semibold text-primary-900">{{.Title}}</p>
+              <p class="texl-base text-primary-900">{{.Summary | truncate 25}}</p>
+              <p class="mt-3 text-gray-600 text-sm">{{.Params.date.Format .Site.Params.dateFormat}}</p>
+            </span>
+          </div>
+        </a>
+      </div>
+      {{- end}}
+    </div>
+  </div>
+</section>
+{{- end}}

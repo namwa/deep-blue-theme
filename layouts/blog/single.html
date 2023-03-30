@@ -1,0 +1,44 @@
+{{- define "main"}}
+<header class="flex flex-col items-center justify-center space-y-2 px-6">
+	<div class="mt-10 md:mt-20">
+    <h1 class="text-primary-900 font-semibold text-4xl">{{.Title}}</h3>
+  </div>
+  {{- /* Breadcrumb */}}
+  <nav class="py-6" aria-label="Breadcrumb">
+    <ol role="list" class="flex items-center space-x-4">
+      <li>
+        <a href="{{.Site.BaseURL}}" class="text-primary-900 hover:text-primary-700">
+          <!-- Heroicon name: solid/home -->
+          <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+          </svg>
+          <span class="sr-only">Home</span>
+        </a>
+      </li>
+
+      <svg class="flex-shrink-0 h-5 w-5 text-primary-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+      </svg>
+      <li class="text-primary-900">
+        <a href={{.Site.Params.blogPageURL | absURL}}>All Post</a>
+      </li>
+
+      <svg class="flex-shrink-0 h-5 w-5 text-primary-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+      </svg>
+      <li>
+        <span class="text-base font-medium text-primary-900">{{.Title}}</span>
+      </li>
+    </ol>
+  </nav>
+</header>
+
+<section class="max-w-5xl mx-auto px-6 py-6 md:py-20">
+  <div class="flex justify-center">
+    <img src={{.Params.image | absURL}} alt="feature-image" class="rounded-lg overflow-hidden">
+  </div>
+  <div class="mt-10 single-blog-content">
+    {{.Content}}
+  </div>
+</section>
+{{- end}}

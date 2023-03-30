@@ -1,0 +1,50 @@
+{{- with .Site.Data.about}}
+<section class="bg-gray-50" id="about">
+  <div class="max-w-7xl mx-auto py-10 px-6 lg:py-20 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto pb-6 md:pb-12">
+      <h2 class="top-title">{{.topTitle}}</h2>
+      <p class="mt-6 text-lg text-gray-700">{{.title | markdownify}}</p>
+    </div>
+
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-center items-center">
+      <!-- Profile photo -->
+      <div class="lg:w-2/5 relative">
+        <!-- Animated svg -->
+        <div class="hidden lg:block absolute -left-14 -top-14 animate-moveUpDown">
+          <img src="images/about/figure-svg.svg" alt="figure-svg" class="h-28">
+        </div>
+        <div class="relative h-1/2 w-1/2 mx-auto lg:mx-0 md:h-full md:w-full rounded-2xl">
+          <img src="{{ .image | absURL }}" alt="about-img"
+          style='-webkit-mask: url({{"images/about/about-mask-svg.svg" | absURL}}); -webkit-mask-size: contain;  -webkit-mask-repeat: no-repeat; -webkit-mask-position: center center;'>
+        </div>
+      </div>
+
+      <!-- About me detail -->
+      <div class="lg:w-3/5 relative py-6 lg:py-0">
+        <!-- Animated blob -->
+        <div class="hidden lg:block absolute -top-60 -right-56 w-3/4 h-full animate-blob">
+          <svg viewBox="0 0 600 600">
+            <defs>
+              <linearGradient id="c" x1="0.929" y1="0.111" x2="0.263" y2="0.935"
+                gradientUnits="objectBoundingBox">
+                <stop offset="0" stop-color="#F1F6F9" />
+                <stop offset="1" stop-color="#F1F6F9" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <g data-name="blob-shape (3)">
+              <path class="blob" fill="url(#c)"
+                d="M455.4 151.1c43.1 36.7 73.4 92.8 60.8 136.3-12.7 43.5-68.1 74.4-111.3 119.4-43.1 45-74 104.1-109.8 109-35.9 5-76.7-44.2-111.8-89.2-35.2-45-64.7-85.8-70.8-132.6-6-46.8 11.6-99.6 46.7-136.3 35.2-36.6 88-57.2 142.4-58.8 54.5-1.7 110.6 15.6 153.8 52.2z" />
+            </g>
+          </svg>
+        </div>
+        <div class="bg-primary-900 rounded-2xl p-8 md:p-12 lg:-ml-16 isolate">
+          <span class="text-white text-2xl font-semibold headingFont">{{.contentHeader}}</span>
+          <div class="mt-8 text-lg text-primary-100">
+            {{.content | markdownify}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{- end}}
