@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "cd themes/deep-blue-theme && npm run build && hugo --gc --minify --themesDir ../.."
+  command = "npm run build && hugo --gc --minify --themesDir ../.."
 
 [build.environment]
 HUGO_VERSION = "0.96.0"
